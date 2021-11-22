@@ -1,6 +1,6 @@
 # instax
 
-A new Flutter project.
+Sebuah aplikasi Instax dari Fujifilm yang memberikan informasi produk kamera polaroid dari Fujifilm.
 
 ## Getting Started
 
