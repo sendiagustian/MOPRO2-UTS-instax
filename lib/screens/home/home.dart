@@ -5,6 +5,13 @@ import 'package:instax/screens/home/item_detail.dart';
 import 'package:instax/screens/home/providers/search_providers.dart';
 import 'package:provider/provider.dart';
 
+// ignore: slash_for_doc_comments
+/**
+ * @nama  Sendi Agustian
+ * @kelas TIF RM CID 19
+ * @npm   19552011018
+ */
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 

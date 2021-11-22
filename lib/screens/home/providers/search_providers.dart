@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:instax/models/product_model.dart';
 
+// ignore: slash_for_doc_comments
+/**
+ * @nama  Sendi Agustian
+ * @kelas TIF RM CID 19
+ * @npm   19552011018
+ */
+
 class SearchProvider with ChangeNotifier {
   final List<ProductModel> listProduct;
 

@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:instax/screens/home/home.dart';
 import 'package:instax/screens/splash/splash.dart';
 
+// ignore: slash_for_doc_comments
+/**
+ * @nama  Sendi Agustian
+ * @kelas TIF RM CID 19
+ * @npm   19552011018
+ */
+
 void main() {
   runApp(const MyApp());
 }

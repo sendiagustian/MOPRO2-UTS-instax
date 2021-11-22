@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:instax/models/product_model.dart';
 
+// ignore: slash_for_doc_comments
+/**
+ * @nama  Sendi Agustian
+ * @kelas TIF RM CID 19
+ * @npm   19552011018
+ */
+
 class ItemDetailScreen extends StatelessWidget {
   final ProductModel productModel;
   const ItemDetailScreen(this.productModel, {Key? key}) : super(key: key);
@@ -122,7 +129,55 @@ class ItemDetailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             const Text(
-              'Pop it in your wallet, stick it to your wall-the INSTAX Mini film brings you instant 2 x 3 sized photos you can show and tell.\n\nUsing professional hight-quality film technology (as you\'d expect from',
+              'Pop it in your wallet, stick it to your wall-the INSTAX Mini film brings you instant 2 x 3 sized photos you can show and tell.\n\nUsing professional hight-quality film technology (as you\'d expect from m Fujifilm), your festival frolicking, sun worshipping, crowd surfing memories that you print will transport you right back into that moment.',
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              'Mini Film',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              'Mini moments with maximum impact. What’s your next mini moment?',
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              'Plenty of Great Color Choices',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              'Available in five awesome colors: Lavender, Seafoam Green, Coral, Light Pink & Light Blue',
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              'The Mini 7+ Has Your Back!',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              'Depending upon the weather conditions, you can easily control brightness to obtain a great picture',
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              'Fun All The Time!',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              'Live in the moment and enjoy your Mini 7+, and give your day some instant fun!',
             ),
           ],
         ),
@@ -157,15 +212,7 @@ class ItemDetailScreen extends StatelessWidget {
                 ),
                 elevation: 0,
               ),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) {
-                      return ItemDetailScreen(productModel);
-                    },
-                  ),
-                );
-              },
+              onPressed: () {},
               child: const Text(
                 'Buy Now',
                 style: TextStyle(
