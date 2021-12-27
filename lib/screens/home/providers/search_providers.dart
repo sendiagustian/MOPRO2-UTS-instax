@@ -1,5 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:instax/models/product_model.dart';
+import 'package:instax/resources/models/product_model.dart';
 
 // ignore: slash_for_doc_comments
 /**
@@ -9,7 +10,7 @@ import 'package:instax/models/product_model.dart';
  */
 
 class SearchProvider with ChangeNotifier {
-  final List<ProductModel> listProduct;
+  final List<DocumentSnapshot<ProductModel>> listProduct;
 
   SearchProvider(this.listProduct) {
     searchControl.addListener(() {
@@ -22,7 +23,7 @@ class SearchProvider with ChangeNotifier {
   bool _isSearch = false;
   FocusNode _focusNode = FocusNode();
   TextEditingController _searchControl = TextEditingController();
-  List<ProductModel> _searchResult = [];
+  List<DocumentSnapshot<ProductModel>> _searchResult = [];
 
   bool get isSearch => _isSearch;
 
@@ -45,9 +46,9 @@ class SearchProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<ProductModel> get searchResult => _searchResult;
+  List<DocumentSnapshot<ProductModel>> get searchResult => _searchResult;
 
-  set searchResult(List<ProductModel> newValue) {
+  set searchResult(List<DocumentSnapshot<ProductModel>> newValue) {
     _searchResult = newValue;
     notifyListeners();
   }
@@ -71,8 +72,12 @@ class SearchProvider with ChangeNotifier {
     if (searchText.isNotEmpty) {
       isSearch = true;
       for (int i = 0; i < listProduct.length; i++) {
-        ProductModel data = listProduct[i];
-        if (data.typeName!.toLowerCase().contains(searchText.toLowerCase())) {
+        DocumentSnapshot<ProductModel> data = listProduct[i];
+        if (data
+            .data()!
+            .typeName
+            .toLowerCase()
+            .contains(searchText.toLowerCase())) {
           searchResult.add(data);
         }
       }

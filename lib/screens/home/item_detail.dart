@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instax/models/product_model.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:instax/resources/models/product_model.dart';
 
 // ignore: slash_for_doc_comments
 /**
@@ -30,7 +31,7 @@ class ItemDetailScreen extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
-              color: Color(productModel.colorHex!),
+              color: Color(productModel.colorHex),
               width: 1,
             ),
           ),
@@ -40,7 +41,7 @@ class ItemDetailScreen extends StatelessWidget {
             },
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
-              color: Color(productModel.colorHex!),
+              color: Color(productModel.colorHex),
             ),
           ),
         ),
@@ -73,8 +74,8 @@ class ItemDetailScreen extends StatelessWidget {
             const SizedBox(height: 32.0),
             Align(
               alignment: Alignment.center,
-              child: Image.asset(
-                productModel.image!,
+              child: Image.network(
+                productModel.image,
                 width: MediaQuery.of(context).size.width / 1.5,
               ),
             ),
@@ -90,12 +91,12 @@ class ItemDetailScreen extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: productModel.typeName!,
+                    text: productModel.typeName,
                     style: TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold,
                       color: Color(
-                        productModel.colorHex!,
+                        productModel.colorHex,
                       ),
                     ),
                   ),
@@ -103,81 +104,12 @@ class ItemDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8.0),
-            const Text(
-              'Be real and fun with the INSTAX MINI 7+ Cool design, colorful and compact, this instant camera is fun and esay to use. Point and shoot and girve your day some fun!',
-              style: TextStyle(),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'Point & Shoot',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'The Mini 7+ is esay to use! Simply point and shoot! With its exposure control adjustment and 60mm fixed focus lens, the Mini 7+ makes it esay for you to be creative and live in the moment.',
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'Mini But With Full-Size Memories',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'Pop it in your wallet, stick it to your wall-the INSTAX Mini film brings you instant 2 x 3 sized photos you can show and tell.\n\nUsing professional hight-quality film technology (as you\'d expect from m Fujifilm), your festival frolicking, sun worshipping, crowd surfing memories that you print will transport you right back into that moment.',
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'Mini Film',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'Mini moments with maximum impact. What’s your next mini moment?',
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'Plenty of Great Color Choices',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'Available in five awesome colors: Lavender, Seafoam Green, Coral, Light Pink & Light Blue',
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'The Mini 7+ Has Your Back!',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'Depending upon the weather conditions, you can easily control brightness to obtain a great picture',
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'Fun All The Time!',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              'Live in the moment and enjoy your Mini 7+, and give your day some instant fun!',
+            Html(
+              data: productModel.content,
+              style: {
+                'p': Style(padding: EdgeInsets.zero),
+                'h3': Style(padding: EdgeInsets.zero)
+              },
             ),
           ],
         ),
@@ -197,7 +129,7 @@ class ItemDetailScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              '\$ ${productModel.price!.toStringAsFixed(2)}',
+              '\$ ${productModel.price.toStringAsFixed(2)}',
               style: const TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -205,7 +137,7 @@ class ItemDetailScreen extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Color(productModel.colorHex!),
+                primary: Color(productModel.colorHex),
                 padding: const EdgeInsets.all(16),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
